@@ -1,12 +1,15 @@
-package LeetCode;
+package LeetCode.lc_301_350;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
- * Created by Tin on 2/6/16.
+ * Created by ytliu on 3/3/16.
  */
-public class From300To350 {
-    public static void main(String[] args){
-        System.out.println("315. Count of Smaller Numbers After Self");
+public class lc315_count_of_smaller_numbers_after_self {
+
+    public static void main(String[] args) {
         System.out.println(countSmaller(new int[]{5, 2, 6, 1})); //[2, 1, 1, 0]
     }
     static class TreeNode {
