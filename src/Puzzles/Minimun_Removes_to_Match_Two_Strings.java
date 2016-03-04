@@ -5,7 +5,7 @@ import LeetCode.util.Printer;
 /**
  * Created by ytliu on 3/3/16.
  */
-public class minimun_remove_to_match_two_strings {
+public class Minimun_Removes_to_Match_Two_Strings {
     public static void main(String[] args) {
         System.out.println(minRemove("dafbea", "aba"));
     }
