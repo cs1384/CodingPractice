@@ -15,4 +15,18 @@ public class Printer {
         }
         System.out.println("]");
     }
+    public static void printArray(int[] arr){
+        System.out.print("[");
+        for(int i : arr){
+            System.out.print(i+", ");
+        }
+        System.out.println("]");
+    }
+    public static void printListNode(ListNode listNode){
+        while(listNode!=null){
+            System.out.print(listNode.val+" -> ");
+            listNode = listNode.next;
+        }
+        System.out.println();
+    }
 }

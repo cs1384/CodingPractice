@@ -12,12 +12,18 @@ public class Guess_Number_Cost_Is_the_Number_You_Guess {
         getStartNumberAndCost(3);
         getStartNumberAndCost(4);
         getStartNumberAndCost(5);
+        getStartNumberAndCost(6);
+        getStartNumberAndCost(7);
+        getStartNumberAndCost(8);
+        getStartNumberAndCost(9);
+        getStartNumberAndCost(10);
         getStartNumberAndCost(100);
+        getStartNumberAndCost(1000);
     }
     public static void getStartNumberAndCost(int n){
-        int start = (int)(n/2);
+        int start = 1;
         int[][] dp = new int[n][n];
-        for(int i=0;i<n;i++) dp[i][i] = i+1;
+//        for(int i=0;i<n;i++) dp[i][i] = i+1;
         for(int j=1;j<n;j++){
             for(int i=n-1;i>=0;i--){
                 if(i+j>=n) continue;
@@ -27,11 +33,15 @@ public class Guess_Number_Cost_Is_the_Number_You_Guess {
                 int rangeMin = Integer.MAX_VALUE;
 //                System.out.println("Working on ("+(i+1)+","+(top+1)+")");
                 while(op<=top){
+//                    System.out.println("Cut on "+(op+1));
                     int cut = (op+1);
                     int left = (op-1)>=0?dp[i][op-1]:0;
+//                    System.out.println("Left:"+left);
                     int right = ((op+1)<n?dp[op+1][top]:0);
-                    if(right!=0 && (op-1==i)) left = 0;
-                    int cost = cut + left + right;
+//                    System.out.println("right:"+right);
+                    int cost = cut + (left>=right?left:right);
+//                    System.out.println("cost:"+cost);
+
 //                    System.out.println("Cut on "+(op+1)+", the cost is "+cost);
                     if(cost<rangeMin){
                         rangeMin = cost;
@@ -39,6 +49,7 @@ public class Guess_Number_Cost_Is_the_Number_You_Guess {
                     }
                     op++;
                 }
+//                System.out.println("Decided:"+rangeMin);
                 dp[i][top] = rangeMin;
             }
 //            Printer.printMetrix(dp);
