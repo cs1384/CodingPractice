@@ -1,0 +1,20 @@
+1. two pointer
+
+Sorted array to find a sum -> two pointers from head and rear, this will take O(N) instead of O(NlogN) which is to
+fix on an index and binary search for the corresponding index
+
+ex. lc001_two_sum, lc011_Container_With_Most_Water
+
+2. String comparison (evne to itself) -> DP
+
+ex. lc005_Longest_Palindromic_Substring
+
+3. How to check integer boundary
+
+if(res<0 && Integer.MIN_VALUE/10>res) return 0;
+if(res>0 && Integer.MAX_VALUE/10<res) return 0;
+
+ex. lc007_Reverse_Integer
+
+4. get all results -> DFS
+

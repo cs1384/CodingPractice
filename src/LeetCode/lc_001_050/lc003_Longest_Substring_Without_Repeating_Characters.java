@@ -12,6 +12,7 @@ public class lc003_Longest_Substring_Without_Repeating_Characters {
         System.out.println(lengthOfLongestSubstring("abba")); //2
     }
     public static int lengthOfLongestSubstring(String s) {
+        // use this as a map
         int[] indices = new int[256];
         String res = "";
         int start = 0;

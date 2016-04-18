@@ -16,6 +16,7 @@ public class lc007_Reverse_Integer {
         int res = 0;
         int op = x>0?10:-10;
         while(x!=0){
+            // check upper and lower bound
             if(res<0 && Integer.MIN_VALUE/10>res) return 0;
             if(res>0 && Integer.MAX_VALUE/10<res) return 0;
             res *= 10;

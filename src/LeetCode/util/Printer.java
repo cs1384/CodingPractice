@@ -1,5 +1,7 @@
 package LeetCode.util;
 
+import java.util.List;
+
 /**
  * Created by ytliu on 3/4/16.
  */
@@ -28,5 +30,19 @@ public class Printer {
             listNode = listNode.next;
         }
         System.out.println();
+    }
+    public static <T> void printListList(List<List<T>> list){
+        System.out.println("[");
+        for(List<T> ls : list){
+            printList(ls);
+        }
+        System.out.println("]");
+    }
+    public static <T> void printList(List<T> list){
+        System.out.print("[");
+        for (T e : list) {
+            System.out.print(e+", ");
+        }
+        System.out.println("]");
     }
 }
