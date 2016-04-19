@@ -11,6 +11,50 @@ public class Allocate_minimum_number_of_pages_to_each_student {
     static int minMax;
     static int op;
     public static void main(String[] args) {
+        DPapproach();
+    }
+    public static void DPapproach() {
+        Scanner sc = new Scanner(System.in);
+        int testCaseNum = sc.nextInt();
+        int k = 0;
+        while(k<testCaseNum){
+            int bookNum = sc.nextInt();
+            int[] books = new int[bookNum];
+            int b = 0;
+            while(b<bookNum) books[b++] = sc.nextInt();
+            int numStudent = sc.nextInt();
+            int[][] indexToEndBooks_numStudent = new int[bookNum][numStudent];
+            int sum = 0;
+            int max = Integer.MIN_VALUE;
+            for(int i=bookNum-1;i>=0;i--){
+                sum += books[i];
+                max = Math.max(books[i],max);
+                for(int j=1;j<=bookNum-i && j<=numStudent;j++){
+                    if(j==1) indexToEndBooks_numStudent[i][j-1] = sum;
+                    else if(j==bookNum-i) indexToEndBooks_numStudent[i][j-1] = max;
+                    else {
+                        int localSum = 0;
+                        int minMax = Integer.MAX_VALUE;
+                        for(int cut=0;bookNum-i-1-cut>=j-1;cut++){
+                            localSum += books[i+cut];
+                            int localMax = Math.max(localSum, indexToEndBooks_numStudent[i+1+cut][j-1-1]);
+                            minMax = Math.min(localMax, minMax);
+                        }
+                        indexToEndBooks_numStudent[i][j-1] = minMax;
+                    }
+                }
+                Printer.printMetrix(indexToEndBooks_numStudent);
+            }
+            System.out.println(indexToEndBooks_numStudent[0][numStudent-1]);
+            k++;
+        }
+        sc.close();
+    }
+
+    /*
+    DFS! Slow. and we will calculate some same result mutiple times
+     */
+    public static void DFSapproach() {
         Scanner sc = new Scanner(System.in);
         int testCaseNum = sc.nextInt();
         int i = 0;
