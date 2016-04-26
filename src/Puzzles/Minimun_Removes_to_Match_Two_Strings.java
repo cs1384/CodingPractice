@@ -23,6 +23,4 @@ public class Minimun_Removes_to_Match_Two_Strings {
         Printer.printMetrix(dp);
         return a.length()+b.length()-(dp[a.length()-1][b.length()-1]*2);
     }
-
-
 }
