@@ -9,7 +9,7 @@ import LeetCode.util.Printer;
 /**
  * Created by ytliu on 5/1/16.
  */
-public class lc32_Longest_Valid_Parentheses {
+public class lc032_Longest_Valid_Parentheses {
     public static void main(String[] args) {
         System.out.println(longestValidParentheses("(()")); //2
         System.out.println(longestValidParentheses(")()())")); //4

@@ -24,6 +24,13 @@ public class Printer {
         }
         System.out.println("]");
     }
+    public static <T> void printArray(T[] arr){
+        System.out.print("[");
+        for(T t : arr){
+            System.out.print(t+", ");
+        }
+        System.out.println("]");
+    }
     public static void printListNode(ListNode listNode){
         while(listNode!=null){
             System.out.print(listNode.val+" -> ");
