@@ -6,7 +6,7 @@ import java.util.List;
  * Created by ytliu on 3/4/16.
  */
 public class Printer {
-    public static void printMetrix(int[][] m){
+    public static void printMatrix(int[][] m){
         System.out.println("[");
         for(int i=0;i<m.length;i++){
             System.out.print(" [");
@@ -16,6 +16,17 @@ public class Printer {
             System.out.println("]");
         }
         System.out.println("]");
+    }
+    public static void printMatrix(char[][] board){
+        System.out.println("{");
+        for(int i=0;i<board.length;i++){
+            System.out.print("[");
+            for(int j=0;j<board[i].length;j++){
+                System.out.print(board[i][j]+",");
+            }
+            System.out.println("],");
+        }
+        System.out.println("}");
     }
     public static void printArray(int[] arr){
         System.out.print("[");

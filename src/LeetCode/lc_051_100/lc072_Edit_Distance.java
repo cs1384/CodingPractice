@@ -36,7 +36,7 @@ public class lc072_Edit_Distance {
                 }
             }
         }
-        Printer.printMetrix(cost);
+        Printer.printMatrix(cost);
         return cost[m][n];
     }
     public static int minDistance(String word1, String word2) {

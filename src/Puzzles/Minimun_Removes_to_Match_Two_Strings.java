@@ -20,7 +20,7 @@ public class Minimun_Removes_to_Match_Two_Strings {
                 dp[i][j] = preMax+(a.charAt(i)==b.charAt(j)?1:0);
             }
         }
-        Printer.printMetrix(dp);
+        Printer.printMatrix(dp);
         return a.length()+b.length()-(dp[a.length()-1][b.length()-1]*2);
     }
 }

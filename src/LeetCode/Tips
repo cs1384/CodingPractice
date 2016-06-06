@@ -1,3 +1,7 @@
+Good quesiton: lc041
+
+
+
 1. two pointer
 
 Sorted array to find a sum -> two pointers from head and rear, this will take O(N) instead of O(NlogN) which is to

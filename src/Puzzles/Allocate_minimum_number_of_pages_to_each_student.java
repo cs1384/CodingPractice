@@ -43,7 +43,7 @@ public class Allocate_minimum_number_of_pages_to_each_student {
                         indexToEndBooks_numStudent[i][j-1] = minMax;
                     }
                 }
-                Printer.printMetrix(indexToEndBooks_numStudent);
+                Printer.printMatrix(indexToEndBooks_numStudent);
             }
             System.out.println(indexToEndBooks_numStudent[0][numStudent-1]);
             k++;
