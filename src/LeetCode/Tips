@@ -28,6 +28,12 @@ ex. lc007_Reverse_Integer
 
 ex. lc031_Next_Permutation
 
+7. solve in place -> need to know the position of holding element
 
+8. no duplicate -> sort the array
+
+ex. lc047_Permutations_II
+
+9. ArrayList removes last faster than LinkedList
 
 
