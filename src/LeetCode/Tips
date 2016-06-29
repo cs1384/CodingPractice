@@ -36,4 +36,18 @@ ex. lc047_Permutations_II
 
 9. ArrayList removes last faster than LinkedList
 
+Because ArrayList accesses last index faster. LinkedList needs
+to go along way through to the last. Only iterator has that linked list
+advantage.
+
+10. permutation, combination, set
+
+ex. lc046_Permutations, lc077_Combinations, lc078_Subsets.
+
+11. when swapping index in an array, think of where it goes!
+
+12. when parseInt(), notice that the "0000" will be parsed to 0
+
+ex. lc091_Decode_Ways, lc093_Restore_IP_Addresses
+
 
