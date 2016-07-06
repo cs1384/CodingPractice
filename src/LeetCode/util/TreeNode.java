@@ -17,7 +17,7 @@ public class TreeNode {
         return sb.toString();
     }
 
-    public void print(StringBuilder sb, int level){
+    private void print(StringBuilder sb, int level){
 
         if(right!=null) right.print(sb, level+1);
         else{

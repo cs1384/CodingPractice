@@ -35,6 +35,13 @@ public class Printer {
         }
         System.out.println("]");
     }
+    public static void printArray(long[] arr){
+        System.out.print("[");
+        for(long i : arr){
+            System.out.print(i+", ");
+        }
+        System.out.println("]");
+    }
     public static <T> void printArray(T[] arr){
         System.out.print("[");
         for(T t : arr){
