@@ -19,11 +19,57 @@ public class lc032_Longest_Valid_Parentheses {
         System.out.println(longestValidParentheses("))))())()()(()")); //4
     }
     /*
+    From Discussion
+     */
+    public static int longestValidParentheses(String s) {
+        Stack<Integer> stack = new Stack<>();
+        int max = 0;
+        int leftEdge = -1;
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            if(c=='('){
+                stack.push(i);
+            }else{
+                if(stack.isEmpty()){
+                    leftEdge = i;
+                }else {
+                    stack.pop();
+                    max = Math.max(max, i - (stack.isEmpty() ? leftEdge : stack.peek()));
+                }
+            }
+        }
+        return max;
+    }
+    /*
+    TLE
+     */
+    public static int longestValidParentheses3(String s) {
+        Stack<Integer> stack = new Stack<>();
+        int max = 0;
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            if(c=='('){
+                stack.push(-1);
+                stack.push(0);
+            }else if(stack.size()>=2){
+                int num = stack.pop();
+                stack.pop();
+                num++;
+                if(!stack.isEmpty()) num += stack.pop();
+                max = Math.max(max, num);
+                stack.push(num);
+            }else if(stack.size()==1){
+                max = Math.max(max, stack.pop());
+            }
+        }
+        return max*2;
+    }
+    /*
     Original solution
     In longestValidParentheses1, we need a stack to double check backward to see if we can form exactly what we formed by
     creating based on '(', so I wonder why wouldn't we check from both ends directly.
      */
-    public static int longestValidParentheses(String s) {
+    public static int longestValidParentheses2(String s) {
         int[] track = new int[s.length()];
         int open = 0, close = 0;
         for(int i=0;i<s.length();i++){

@@ -1,6 +1,9 @@
-Good quesiton: lc041
+Good quesitons:
 
-
+lc041_First_Missing_Positive
+lc114_Flatten_Binary_Tree_to_Linked_List
+lc126_Word_Ladder_II
+lc137_Single_Number_II
 
 1. two pointer
 
@@ -9,7 +12,7 @@ fix on an index and binary search for the corresponding index
 
 ex. lc001_two_sum, lc011_Container_With_Most_Water
 
-2. String comparison (evne to itself) -> DP
+2. String comparison (even to itself) -> DP
 
 ex. lc005_Longest_Palindromic_Substring
 
@@ -50,4 +53,11 @@ ex. lc046_Permutations, lc077_Combinations, lc078_Subsets.
 
 ex. lc091_Decode_Ways, lc093_Restore_IP_Addresses
 
+13. Use double ended BFS when there are start and end points
+
+ex. lc127_Word_Ladder
+
+14. Use Trie to make DFS(backtracking) more efficient
+
+ex. lc212_Word_Search_II
 

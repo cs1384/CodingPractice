@@ -2,46 +2,49 @@ package LeetCode.lc_201_250;
 
 import LeetCode.util.TreeNode;
 
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by Tin on 7/5/16.
  */
 public class lc236_Lowest_Common_Ancestor_of_a_Binary_Tree {
     public static void main(String[] args) {
-
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2);
+        n1.left = n2;
+        System.out.println(lowestCommonAncestor(n1, n1, n2));
     }
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        Map<TreeNode, TreeNode> toParent = new HashMap<>();
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
-        TreeNode candidate = null;
-        TreeNode op = null;
-        while(op!=null){
-            if(op.left!=null){
-                stack.push(op);
-                op = op.left;
-            }else{
-                if(op==p || op==q) {
-                    if(candidate==null) candidate = stack.peek();
-                    else {
-                        while(!stack.isEmpty())
-                            if(stack.pop()==candidate) return candidate;
-                    }
-                }
-                while(stack.isEmpty() && stack.peek().right==null){
-                    stack.pop();
-                }
-                if(!stack.isEmpty()) op = stack.peek().right;
-                else break;
+        while(!stack.isEmpty()){
+            TreeNode treeNode = stack.pop();
+            if(treeNode.left!=null){
+                toParent.put(treeNode.left, treeNode);
+                stack.push(treeNode.left);
+            }
+            if(treeNode.right!=null){
+                toParent.put(treeNode.right, treeNode);
+                stack.push(treeNode.right);
             }
         }
-        return root;
+        Set<TreeNode> ancestors = new HashSet<>();
+        while(p!=null){
+            ancestors.add(p);
+            p = toParent.get(p);
+        }
+        while(q!=null){
+            if(ancestors.contains(q)) return q;
+            q = toParent.get(q);
+        }
+        return null;
     }
     public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
         if(root==null) return null;
         if(root==p || root==q) return root;
-        TreeNode left = lowestCommonAncestor(root.left, p, q);
-        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        TreeNode left = lowestCommonAncestor1(root.left, p, q);
+        TreeNode right = lowestCommonAncestor1(root.right, p, q);
         if(left!=null && right!=null) return root;
         return left==null?right:left;
     }

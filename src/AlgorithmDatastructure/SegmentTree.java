@@ -1,4 +1,4 @@
-package Algorithm_Datastructure;
+package AlgorithmDatastructure;
 
 /**
  * Created by ytliu on 1/4/16.

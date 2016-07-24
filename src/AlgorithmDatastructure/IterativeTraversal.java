@@ -1,4 +1,4 @@
-package Algorithm_Datastructure;
+package AlgorithmDatastructure;
 
 import LeetCode.util.TreeNode;
 import Library.util.Printer;

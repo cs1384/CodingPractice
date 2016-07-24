@@ -13,15 +13,15 @@ public class Zulily {
     http://www.1point3acres.com/bbs/thread-147916-1-1.html
      */
     public static void main(String[] args) {
-        TreeNode<Integer> tn1 = new TreeNode<>(1);
-        TreeNode<Integer> tn2 = new TreeNode<>(2);
-        TreeNode<Integer> tn3 = new TreeNode<>(3);
-        TreeNode<Integer> tn4 = new TreeNode<>(4);
-        TreeNode<Integer> tn5 = new TreeNode<>(5);
-        TreeNode<Integer> tn6 = new TreeNode<>(6);
-        TreeNode<Integer> tn7 = new TreeNode<>(7);
-        TreeNode<Integer> tn8 = new TreeNode<>(8);
-        TreeNode<Integer> tn9 = new TreeNode<>(9);
+        TreeNode tn1 = new TreeNode(1);
+        TreeNode tn2 = new TreeNode(2);
+        TreeNode tn3 = new TreeNode(3);
+        TreeNode tn4 = new TreeNode(4);
+        TreeNode tn5 = new TreeNode(5);
+        TreeNode tn6 = new TreeNode(6);
+        TreeNode tn7 = new TreeNode(7);
+        TreeNode tn8 = new TreeNode(8);
+        TreeNode tn9 = new TreeNode(9);
         tn1.left = tn2;
         tn1.right = tn3;
         tn2.left = tn4;
@@ -41,21 +41,21 @@ public class Zulily {
         System.out.println(calculate("5*3-(9+7)/3"));
     }
 
-    public static void Print_a_Binary_Tree_in_Vertical_Order(TreeNode<Integer> root){
-        Map<Integer, List<TreeNode<Integer>>> verticalLevel_TreeNodes = new TreeMap<>();
+    public static void Print_a_Binary_Tree_in_Vertical_Order(TreeNode root){
+        Map<Integer, List<TreeNode>> verticalLevel_TreeNodes = new TreeMap<>();
         assignVerticalLevel(verticalLevel_TreeNodes, root, 0);
         for(int i : verticalLevel_TreeNodes.keySet()){
-            for(TreeNode<Integer> treeNode : verticalLevel_TreeNodes.get(i)){
+            for(TreeNode treeNode : verticalLevel_TreeNodes.get(i)){
                 System.out.print(treeNode + ", ");
             }
             System.out.println();
         }
     }
-    private static void assignVerticalLevel(Map<Integer, List<TreeNode<Integer>>> verticalLevel_TreeNodesv,
-                                     TreeNode<Integer> root, int level){
+    private static void assignVerticalLevel(Map<Integer, List<TreeNode>> verticalLevel_TreeNodesv,
+                                     TreeNode root, int level){
         if(root==null) return;
         if(!verticalLevel_TreeNodesv.containsKey(level))
-            verticalLevel_TreeNodesv.put(level, new ArrayList<TreeNode<Integer>>());
+            verticalLevel_TreeNodesv.put(level, new ArrayList<TreeNode>());
         verticalLevel_TreeNodesv.get(level).add(root);
         assignVerticalLevel(verticalLevel_TreeNodesv, root.left, level-1);
         assignVerticalLevel(verticalLevel_TreeNodesv, root.right, level+1);

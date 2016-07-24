@@ -1,4 +1,4 @@
-package Algorithm_Datastructure;
+package AlgorithmDatastructure;
 
 /**
  * Created by Tin on 11/22/15.

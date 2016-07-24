@@ -1,0 +1,47 @@
+1. Thread.start() creates a new Thread and call run() in it while calling run()
+only runs the code in the current thread.
+
+2. deadlock:
+http://javarevisited.blogspot.sg/2010/10/what-is-deadlock-in-java-how-to-fix-it.html
+
+3. volatile
+Each thead sometimes caches its own values of variable. This means that the value int
+thread would be updated lately or even never. volatile keyword tells JVM that this
+variable is shared by multiple threads and can not be cached. Each time accessing to
+ the variable, the thread needs to go to the main memory and get the updated value.
+JVM will also make sure this variable is synchronized.
+
+4. atomic:
+https://docs.oracle.com/javase/tutorial/essential/concurrency/atomic.html
+An atomic action means that the execution can not be interrupted. That means,
+thread safe.
+
+- Reads and writes are atomic for reference variables and for most primitive
+variables (all types except long and double).
+- Reads and writes are atomic for all variables declared volatile (including
+long and double variables).
+
+long and doulbe is not atomic because they are too big to be be updated within
+a tick.
+
+a++/++a is not atomic action
+
+5. producer-consumer problem
+http://www.java67.com/2012/12/producer-consumer-problem-with-wait-and-notify-example.html
+
+6. race condition
+when two threads do non-atomic action on the same object, it would be possible one
+thread references the object when the actions by another thread is not done.
+
+class Test{
+    int a = 0;
+    incr(){ a = a+1; }
+}
+
+If two threads call incr() once each, "a" is supposed to be 2 afterward, but if
+second thread references to "a" before it gets incremented, "a" will be assigned 1
+like first thread would do. Then "a" ends up 1. This is called race condition.
+
+
+http://javarevisited.blogspot.com/2012/02/what-is-race-condition-in.html
+
