@@ -61,3 +61,7 @@ ex. lc127_Word_Ladder
 
 ex. lc212_Word_Search_II
 
+15. Iterator: set up next in the next() and make hasNext() just check for
+the existence
+
+ex. lc173_Binary_Search_Tree_Iterator, lc341_Flatten_Nested_List_Iterator

@@ -92,6 +92,34 @@ public class Twitter {
 //        System.out.println(urlShortener.encodeUrlID(125));
 //        System.out.println(urlShortener.decodeShortenUrl("cb"));
         System.out.println(urlShortener.decodeShortenUrl(urlShortener.encodeUrlID(125)));
+
+        System.out.println("12. delete strings");
+        System.out.println("http://www.1point3acres.com/bbs/thread-141103-1-1.html");
+        System.out.println(deleteStrings("abcabc", "abc"));
+        System.out.println(deleteStrings("aabcbc", "abc"));
+        System.out.println(deleteStrings("aabcbcaabc", "abc"));
+    }
+
+    public static int deleteStrings(String main, String sub){
+        int mLen = main.length();
+        int sLen = sub.length();
+        int[] skip = new int[mLen];
+        for(int i=mLen-sLen;i>=0;i--){
+            int j = 0;
+            int op = i;
+            while(j<sLen && op<mLen){
+                if(sub.charAt(j)==main.charAt(op)){
+                    j++;op++;
+                }else{
+                    if(skip[op]>0) op += skip[op];
+                    else break;
+                }
+            }
+            if(j==sLen) skip[i] = op-1;
+        }
+        int count = 0;
+        for(int i : skip) if(i!=0) count++;
+        return count;
     }
     public static class UrlShortener{
         char[] map;

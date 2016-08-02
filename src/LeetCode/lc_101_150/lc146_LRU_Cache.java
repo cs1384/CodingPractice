@@ -10,7 +10,7 @@ public class lc146_LRU_Cache {
     public static void main(String[] args) {
 
     }
-    public class LRUCache {
+    public class LRUCache{
         class DLLNode{
             DLLNode prev = null;
             DLLNode next = null;
