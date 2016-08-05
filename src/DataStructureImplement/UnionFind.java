@@ -15,13 +15,15 @@ general     O(N)    O(N)
 improved    O(logN) O(logN)
  */
 public class UnionFind {
-    private int[] indexToGroup;
     private int[] groupSize;
+    private int[] indexToGroup;
     public UnionFind(int n){
         indexToGroup = new int[n];
-        for(int i=0;i<n;i++) indexToGroup[i] = i;
         groupSize = new int[n];
-        Arrays.fill(groupSize, 1);
+        for(int i=0;i<n;i++){
+            indexToGroup[i] = i;
+            groupSize[i] = 1;
+        }
     }
     public int root(int i){
         while(indexToGroup[i]!=i){
@@ -35,6 +37,7 @@ public class UnionFind {
         return root(i)==root(j);
     }
     public void union(int i, int j){
+//        System.out.println("uniting "+i+" and "+j);
         int iRoot = root(i);
         int jRoot = root(j);
         // flatten the tree
@@ -45,5 +48,10 @@ public class UnionFind {
             indexToGroup[iRoot] = jRoot;
             groupSize[jRoot] += groupSize[iRoot];
         }
+    }
+    public int[] getIndexToGroup() {
+        for(int i=0;i<indexToGroup.length;i++)
+            indexToGroup[i] = root(i);
+        return indexToGroup;
     }
 }

@@ -45,3 +45,10 @@ like first thread would do. Then "a" ends up 1. This is called race condition.
 
 http://javarevisited.blogspot.com/2012/02/what-is-race-condition-in.html
 
+7. unsigned bit operation , >>> , which will operate not based on the sign extension
+
+lc191_Number_of_1_Bits
+System.out.println(Integer.toBinaryString(-8));
+System.out.println(Integer.toBinaryString(-8>>>1));
+System.out.println(Integer.toBinaryString(-8>>1));
+
