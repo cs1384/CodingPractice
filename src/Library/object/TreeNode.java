@@ -3,7 +3,7 @@ package Library.object;
 /**
  * Created by Tin on 6/16/16.
  */
-public class TreeNode extends Node{
+public class TreeNode extends Node {
     public TreeNode left = null;
     public TreeNode right = null;
     public TreeNode(int value){

@@ -4,12 +4,14 @@ package LeetCode.lc_001_050;
  * Created by ytliu on 4/25/16.
  */
 public class lc028_Implement_strStr {
+
     public static void main(String[] args) {
         System.out.println(naiveIndexOf("TinIsAwesome", "IsA"));
         System.out.println(kmpIndexOf("TinIsAwesome", "IsA"));
         System.out.println(kmpIndexOf("TinIsAwesome", "ababaca"));
         System.out.println(kmpIndexOf("bbaa", "aab"));
     }
+
     private static int[] getNextStart(char[] str) {
         int len = str.length;
         int[] next = new int[len];

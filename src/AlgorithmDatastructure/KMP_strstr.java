@@ -10,7 +10,7 @@ package AlgorithmDatastructure;
  * decide can we shift forward maybe more then one position. For example,
  *
  * "xxxxababaaxxxxx"
- *      "ababac"
+ *     "ababac"
  *
  * we stop at c, and base on the the character sequence we've mathced, "ababa",
  * we could move the matching position 2 step forward as following:
@@ -43,7 +43,7 @@ package AlgorithmDatastructure;
  * Since matched can only be incremented at a time, while loop can only operate
  * len(pattern)-1 times during the entire for loop. And that is O(len).
  *
- * The for loop od getNextStart() is O(len) as well, so the TC of this method is O(len)
+ * The for loop of getNextStart() is O(len) as well, so the TC of this method is O(len)
  * kmpIndexOf() has O(bLen) for loop, since sLen is less then bLen, the TC is O(bLen)
  * If you see a comparison as a basic TC unit, then TC of kmpIndexOf() could be
  * O(bLen+sLen)

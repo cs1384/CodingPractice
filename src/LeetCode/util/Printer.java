@@ -99,4 +99,7 @@ public class Printer {
         }
         System.out.println("]");
     }
+    public static void printBits(Integer integer) {
+        System.out.println(Integer.toBinaryString(integer));
+    }
 }
